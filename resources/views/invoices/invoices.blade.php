@@ -1,4 +1,8 @@
 @extends('layouts.master')
+
+@section('title')
+	قائمة الفواتير
+@endsection
 @section('css')
 <!-- Internal Data table css -->
 <link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
@@ -38,19 +42,18 @@
 									<table id="example1" class="table key-buttons text-md-nowrap">
 										<thead>
 											<tr>
-												<th class="border-bottom-0">Name</th>
-												<th class="border-bottom-0">Position</th>
-												<th class="border-bottom-0">Office</th>
-												<th class="border-bottom-0">Age</th>
-												<th class="border-bottom-0">Start date</th>
-												<th class="border-bottom-0">Salary</th>
-												<th class="border-bottom-0">Name</th>
-												<th class="border-bottom-0">Position</th>
-												<th class="border-bottom-0">Office</th>
-												<th class="border-bottom-0">Age</th>
-												<th class="border-bottom-0">Start date</th>
-												<th class="border-bottom-0">Salary</th>
-												<th class="border-bottom-0">Salary</th>
+												<th class="border-bottom-0">#</th>
+												<th class="border-bottom-0">رقم الفاتورة</th>
+												<th class="border-bottom-0">تاريخ الفاتورة</th>
+												<th class="border-bottom-0">تاريخ الاستحقاق</th>
+												<th class="border-bottom-0">المنتج</th>
+												<th class="border-bottom-0">القسم</th>
+												<th class="border-bottom-0">الخصم</th>
+												<th class="border-bottom-0">نسبة الضريبة</th>
+												<th class="border-bottom-0">قيمة الضريبة</th>
+												<th class="border-bottom-0">الاجمالي</th>
+												<th class="border-bottom-0">الحالة</th>
+												<th class="border-bottom-0">ملاحظات</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -66,8 +69,35 @@
 												<td>Edinburgh</td>
 												<td>61</td>
 												<td>2011/04/25</td>
+												<td>2011/04/25</td>
+											</tr>
+											<tr>
+												<td>Tiger Nixon</td>
+												<td>System Architect</td>
+												<td>Edinburgh</td>
+												<td>61</td>
+												<td>2011/04/25</td>
 												<td>$320,800</td>
+												<td>Tiger Nixon</td>
+												<td>System Architect</td>
+												<td>Edinburgh</td>
+												<td>61</td>
+												<td>2011/04/25</td>
+												<td>2011/04/25</td>
+											</tr>
+											<tr>
+												<td>Tiger Nixon</td>
+												<td>System Architect</td>
+												<td>Edinburgh</td>
+												<td>61</td>
+												<td>2011/04/25</td>
 												<td>$320,800</td>
+												<td>Tiger Nixon</td>
+												<td>System Architect</td>
+												<td>Edinburgh</td>
+												<td>61</td>
+												<td>2011/04/25</td>
+												<td>2011/04/25</td>
 											</tr>
 											
 										</tbody>

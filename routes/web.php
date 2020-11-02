@@ -14,4 +14,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('invoices', 'InvoicesController');
 
+Route::resource('sections', 'SectionsController');
+
+Route::resource('products', 'ProductsController');
+
 Route::get('/{page}', 'AdminController@index');
