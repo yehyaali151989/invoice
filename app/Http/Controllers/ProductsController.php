@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductsRequest;
+use App\Product;
+use App\Section;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -13,7 +16,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return "products";
+        $sections = Section::all();
+        $products = Product::all();
+        return view('products.products', compact(['products', 'sections']));
     }
 
     /**
@@ -32,9 +37,16 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductsRequest $request)
     {
-        //
+        Product::create([
+
+            'product_name' => $request->product_name,
+            'section_id' => $request->section_id,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('products.index')->with(['success' => 'تمت الاضافة بنجاح']);
     }
 
     /**
@@ -66,9 +78,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
     }
 
     /**
@@ -77,8 +89,8 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
     }
 }
