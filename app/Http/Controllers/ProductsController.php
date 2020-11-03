@@ -80,7 +80,20 @@ class ProductsController extends Controller
      */
     public function update(Request $request)
     {
-        $id = $request->id;
+
+
+        $id = Section::where('section_name', $request->section_name)->first()->id;
+
+        $Products = Product::findOrFail($request->pro_id);
+
+
+        $Products->update([
+            'product_name' => $request->product_name,
+            'description' => $request->description,
+            'section_id' => $id,
+        ]);
+
+        return redirect()->route('products.index')->with(['success' => 'تمت التعديل بنجاح']);
     }
 
     /**
@@ -91,6 +104,8 @@ class ProductsController extends Controller
      */
     public function destroy(Request $request)
     {
-        $id = $request->id;
+        $Products = Product::findOrFail($request->pro_id);
+        $Products->delete();
+        return redirect()->route('products.index')->with(['success' => 'تمت الحذف بنجاح']);
     }
 }
